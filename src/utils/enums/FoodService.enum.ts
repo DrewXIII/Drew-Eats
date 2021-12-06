@@ -1,4 +1,4 @@
-export enum FoodServiceEnum {
+export enum FoodService {
   Delivery = 'Delivery',
   Pickup = 'Pickup',
 }

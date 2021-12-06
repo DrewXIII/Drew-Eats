@@ -1,23 +1,24 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {FoodServiceEnum} from '../utils/enums/FoodServiceEnum.enum';
+import {FoodService} from '../utils/enums/FoodService.enum';
 import {HeaderButton} from './HeaderButton';
 
-export const HeaderTabs = () => {
-  const [activeTab, setActiveTab] = useState<
-    FoodServiceEnum.Delivery | FoodServiceEnum.Pickup
-  >(FoodServiceEnum.Delivery);
+type Props = {
+  activeTab: FoodService.Delivery | FoodService.Pickup;
+  setActiveTab: React.Dispatch<React.SetStateAction<FoodService>>;
+};
 
+export const HeaderTabs = ({activeTab, setActiveTab}: Props) => {
   return (
     <View style={styles.container}>
       <HeaderButton
-        label={FoodServiceEnum.Delivery}
-        isActive={activeTab === FoodServiceEnum.Delivery}
+        label={FoodService.Delivery}
+        isActive={activeTab === FoodService.Delivery}
         setIsActive={setActiveTab}
       />
       <HeaderButton
-        label={FoodServiceEnum.Pickup}
-        isActive={activeTab === FoodServiceEnum.Pickup}
+        label={FoodService.Pickup}
+        isActive={activeTab === FoodService.Pickup}
         setIsActive={setActiveTab}
       />
     </View>

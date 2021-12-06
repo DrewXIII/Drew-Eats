@@ -5,10 +5,20 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 AntDesign;
 
-export const SearchBar = () => {
+type Props = {
+  setPlace: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export const SearchBar = ({setPlace}: Props) => {
+  const onSearch = data => {
+    setPlace(data.description.split(',')[0]);
+  };
+
   return (
     <View style={styles.container}>
       <GooglePlacesAutocomplete
+        query={{key: ''}} // Key has been removed but by default San Diego will be searched
+        onPress={data => onSearch(data)}
         placeholder="Search"
         styles={{
           textInput: {
