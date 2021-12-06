@@ -1,12 +1,12 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {FoodServiceEnum} from '../utils/enums/FoodServiceEnum.enum';
+import {FoodService} from '../utils/enums/FoodService.enum';
 
 type Props = {
   isActive: boolean;
-  label: FoodServiceEnum.Delivery | FoodServiceEnum.Pickup;
+  label: FoodService.Delivery | FoodService.Pickup;
   setIsActive: React.Dispatch<
-    React.SetStateAction<FoodServiceEnum.Delivery | FoodServiceEnum.Pickup>
+    React.SetStateAction<FoodService.Delivery | FoodService.Pickup>
   >;
 };
 
