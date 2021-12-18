@@ -2,20 +2,26 @@ import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-type Props = {
-  image_url: string;
-  name: string;
-  rating: number;
-};
-
-export const RestaurantItem = ({image_url, name, rating}: Props) => {
+export const RestaurantItem = ({navigation, ...props}) => {
   return (
-    <TouchableOpacity activeOpacity={1} style={styles.mainButton}>
+    <TouchableOpacity
+      activeOpacity={1}
+      style={styles.mainButton}
+      onPress={() =>
+        navigation.navigate('RestaurantDetail', {
+          name: props.name,
+          image: props.image_url,
+          price: props.price,
+          reviews: props.review_count,
+          rating: props.rating,
+          categories: props.categories,
+        })
+      }>
       <View style={styles.container}>
         <View>
           <Image
             source={{
-              uri: image_url,
+              uri: props.image_url,
             }}
             style={styles.image}
           />
@@ -29,11 +35,11 @@ export const RestaurantItem = ({image_url, name, rating}: Props) => {
         </View>
         <View style={styles.textWrapper}>
           <View>
-            <Text style={styles.textMainText}>{name}</Text>
+            <Text style={styles.textMainText}>{props.name}</Text>
             <Text style={styles.textSecondayText}>30-45 · min</Text>
           </View>
           <View style={styles.textRating}>
-            <Text>{rating}</Text>
+            <Text>{props.rating}</Text>
           </View>
         </View>
       </View>

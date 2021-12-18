@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {SafeAreaView, ScrollView, StyleSheet, View} from 'react-native';
+import {BottomTabs} from '../components/BottomTabs';
 import {Categories} from '../components/Categories';
 import {HeaderTabs} from '../components/HeaderTabs';
 import {RestaurantItem} from '../components/RestaurantItem';
@@ -8,7 +9,7 @@ import {FoodService} from '../utils/enums/FoodService.enum';
 import {Restaurant} from '../utils/interfaces/Restaurant.interface';
 import {getRestaurantsByLocation} from '../utils/services/restaurants/getRestaurantsByLocation';
 
-export const HomeScreen = () => {
+export const HomeScreen = ({navigation}) => {
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
   const [place, setPlace] = useState('San Diego'); // Google Place API KEY has been removed, so this value is hardcoded to see one place.
   const [activeTab, setActiveTab] = useState<
@@ -39,15 +40,15 @@ export const HomeScreen = () => {
       </View>
       <Categories />
       <ScrollView showsVerticalScrollIndicator={false}>
-        {restaurants.map(({id, image_url, name, rating}) => (
+        {restaurants.map(restaurant => (
           <RestaurantItem
-            key={id}
-            image_url={image_url}
-            name={name}
-            rating={rating}
+            key={restaurant.id}
+            {...restaurant}
+            navigation={navigation}
           />
         ))}
       </ScrollView>
+      <BottomTabs />
     </SafeAreaView>
   );
 };
