@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1024489521541",
+    "project_id": "dreweats-48588",
+    "storage_bucket": "dreweats-48588.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024489521541:android:a0928637a1690ae5f1c4ec",
+        "android_client_info": {
+          "package_name": "com.dreweats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024489521541-kovk5ievn1nkeaslirhu9ei8lb95a205.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgYfwg-kxL95WEkm-Cnuv0bvAWsym-Dng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024489521541-kovk5ievn1nkeaslirhu9ei8lb95a205.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
